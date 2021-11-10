@@ -37,11 +37,6 @@ from and of course, persist this choice in your device.
 
 Click below to watch a quick demo.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xCCHCgYo80c" 
-        title="YouTube video player" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen></iframe>
-        
 [![Alt text](https://img.youtube.com/vi/xCCHCgYo80c/0.jpg)](https://www.youtube.com/watch?v=xCCHCgYo80c)
 
 
