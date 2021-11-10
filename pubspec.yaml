@@ -1,9 +1,6 @@
 name: adaptive_chameleon_theme
-description: A Flutter package that will automatically retrieve your OS defined Theme (Dynamic),
-  force your prefered one (Light / Dark), allow you to present the user with a set of color
-  themes to choose from and of course, persist this choice in your device.
-version: 0.0.1
-author: Kevin Omyonga
+description: Adds support for managing theme modes (light, dark, system) and switching theme colors.
+version: 0.0.2
 homepage: "https://github.com/kevinomyonga/adaptive_chameleon_theme"
 
 environment:
