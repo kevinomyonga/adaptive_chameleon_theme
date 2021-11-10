@@ -19,7 +19,9 @@ class AdaptiveChameleonTheme extends InheritedWidget {
   }) : super(key: key, child: child);
 
   static _AdaptiveChameleonThemeWidgetState of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<AdaptiveChameleonTheme>()!.data;
+    return context
+        .dependOnInheritedWidgetOfExactType<AdaptiveChameleonTheme>()!
+        .data;
   }
 
   @override
@@ -31,9 +33,8 @@ class AdaptiveChameleonTheme extends InheritedWidget {
 /// Signature for the `builder` function which takes the [BuildContext] and
 /// [ThemeData] as arguments and is responsible for returning a [Widget]
 /// in the corresponding theme.
-typedef ThemedWidgetBuilder = Widget Function(
-    BuildContext context, ThemeData themeData, ThemeData darkThemeData,
-    ThemeMode initialThemeMode);
+typedef ThemedWidgetBuilder = Widget Function(BuildContext context,
+    ThemeData themeData, ThemeData darkThemeData, ThemeMode initialThemeMode);
 
 /// Widget that will contains the whole app
 class AdaptiveChameleonThemeWidget extends StatefulWidget {
@@ -50,14 +51,16 @@ class AdaptiveChameleonThemeWidget extends StatefulWidget {
     required this.builder,
     this.defaultThemeId = 0,
     required this.themeCollection,
-    required this.darkThemeCollection,})
-      : super(key: key);
+    required this.darkThemeCollection,
+  }) : super(key: key);
 
   @override
-  _AdaptiveChameleonThemeWidgetState createState() => _AdaptiveChameleonThemeWidgetState();
+  _AdaptiveChameleonThemeWidgetState createState() =>
+      _AdaptiveChameleonThemeWidgetState();
 }
 
-class _AdaptiveChameleonThemeWidgetState extends State<AdaptiveChameleonThemeWidget> {
+class _AdaptiveChameleonThemeWidgetState
+    extends State<AdaptiveChameleonThemeWidget> {
   ThemeMode? themeMode;
   late SharedPreferencesService _prefs;
   Future? fInit;
@@ -132,8 +135,8 @@ class _AdaptiveChameleonThemeWidgetState extends State<AdaptiveChameleonThemeWid
       newThemeMode = (dynamic ?? false)
           ? ThemeMode.system
           : forceDark
-          ? ThemeMode.dark
-          : ThemeMode.light;
+              ? ThemeMode.dark
+              : ThemeMode.light;
     }
 
     if (newThemeMode == ThemeMode.system) {
@@ -206,8 +209,8 @@ class _AdaptiveChameleonThemeWidgetState extends State<AdaptiveChameleonThemeWid
         if (snapshot.connectionState == ConnectionState.done) {
           return AdaptiveChameleonTheme(
             data: this,
-            child: widget.builder(context, _currentTheme, _currentDarkTheme,
-                themeMode!),
+            child: widget.builder(
+                context, _currentTheme, _currentDarkTheme, themeMode!),
           );
         }
         return Container(

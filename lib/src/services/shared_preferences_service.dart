@@ -23,8 +23,7 @@ class SharedPreferencesService {
 
   Future loadInstance() async => _prefs = await SharedPreferences.getInstance();
 
-  bool? isDark() =>
-      _prefs!.getBool(SharePrefsAttribute.isDark.toShortString());
+  bool? isDark() => _prefs!.getBool(SharePrefsAttribute.isDark.toShortString());
 
   setIsDark(bool value) =>
       _prefs!.setBool(SharePrefsAttribute.isDark.toShortString(), value);
@@ -32,9 +31,8 @@ class SharedPreferencesService {
   int? selectedThemeId() =>
       _prefs!.getInt(SharePrefsAttribute.selectedThemeId.toShortString());
 
-  setSelectedThemeId(int value) =>
-      _prefs!.setInt(SharePrefsAttribute.selectedThemeId.toShortString(),
-          value);
+  setSelectedThemeId(int value) => _prefs!
+      .setInt(SharePrefsAttribute.selectedThemeId.toShortString(), value);
 
   clearPref(SharePrefsAttribute attribute) =>
       _prefs!.remove(attribute.toShortString());

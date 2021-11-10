@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:adaptive_chameleon_theme/adaptive_chameleon_theme.dart';
 
-
 void main() {
   runApp(
     const MyApp(),
@@ -28,8 +27,7 @@ class MyApp extends StatelessWidget {
             themeMode: themeMode,
             home: const MyHomePage(title: 'Adaptive Chameleon Theme'),
           );
-        }
-    );
+        });
   }
 }
 
@@ -127,44 +125,37 @@ class _MyHomePageState extends State<MyHomePage> {
                   setState(() {
                     dropdownValue = themeId;
                   });
-                }
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                      margin: const EdgeInsets.all(20),
-                      width: 100,
-                      height: 120,
-                      color: theme.primaryColor,
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                              'Container in primary color and primary text theme',
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).primaryTextTheme.bodyText2
-                          ),
-                        ),
-                      )
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all(20),
-                    width: 100,
-                    height: 120,
-                    color: theme.colorScheme.secondary,
-                    child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                              'Container in accent color and with accent text theme',
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).primaryTextTheme.bodyText2),
-                        )),
-                  ),
-                ]
-            ),
-
+                }),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+              Container(
+                  margin: const EdgeInsets.all(20),
+                  width: 100,
+                  height: 120,
+                  color: theme.primaryColor,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          'Container in primary color and primary text theme',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).primaryTextTheme.bodyText2),
+                    ),
+                  )),
+              Container(
+                margin: const EdgeInsets.all(20),
+                width: 100,
+                height: 120,
+                color: theme.colorScheme.secondary,
+                child: Center(
+                    child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                      'Container in accent color and with accent text theme',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).primaryTextTheme.bodyText2),
+                )),
+              ),
+            ]),
             ElevatedButton(
               onPressed: () {},
               child: Text(
@@ -177,7 +168,6 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.only(top: 24, bottom: 12),
               child: Text('Select your theme mode here:'),
             ),
-
             DropdownButton(
                 icon: const Icon(Icons.arrow_downward),
                 value: themeModeDropdownValue,
@@ -198,25 +188,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 onChanged: (dynamic themeMode) async {
                   switch (themeMode) {
                     case ThemeMode.light:
-                      AdaptiveChameleonTheme.of(context).changeThemeMode
-                        (dark: false);
+                      AdaptiveChameleonTheme.of(context)
+                          .changeThemeMode(dark: false);
                       break;
                     case ThemeMode.dark:
-                      AdaptiveChameleonTheme.of(context).changeThemeMode
-                        (dark: true);
+                      AdaptiveChameleonTheme.of(context)
+                          .changeThemeMode(dark: true);
                       break;
                     case ThemeMode.system:
-                      AdaptiveChameleonTheme.of(context).changeThemeMode
-                        (dynamic: true);
+                      AdaptiveChameleonTheme.of(context)
+                          .changeThemeMode(dynamic: true);
                       break;
                   }
 
                   setState(() {
                     themeModeDropdownValue = themeMode;
                   });
-                }
-            ),
-
+                }),
           ],
         ),
       ),
