@@ -19,7 +19,7 @@ Automatically get your OS defined Theme (Dynamic), force your prefered one (Ligh
 ![GitHub](https://img.shields.io/github/license/KevinOmyonga/adaptive_chameleon_theme)
 
 <a href="https://pub.dev/packages/adaptive_chameleon_theme"><img src="https://github.
-com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/adaptive-chameleon-theme.png?
+com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/adaptive-chameleon-theme.jpg?
 raw=true"/></a>
 
 
