@@ -85,7 +85,7 @@ final darkThemeCollection = ThemeCollection(
 ```
 **NOTE:** Remember to define a collection of dark themes equivalent in number to the normal themes.
 
-Proceed to wrap your `MaterialApp` with `AdaptiveChameleonTheme` in order to apply and modify UI 
+Proceed to wrap your `MaterialApp` with `AdaptiveChameleonThemeWidget` in order to apply and modify UI 
 themes.
 
 ```dart
