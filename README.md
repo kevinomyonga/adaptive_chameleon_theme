@@ -18,9 +18,9 @@ Automatically get your OS defined Theme (Dynamic), force your prefered one (Ligh
 ![Pub Version](https://img.shields.io/pub/v/adaptive_chameleon_theme)
 ![GitHub](https://img.shields.io/github/license/KevinOmyonga/adaptive_chameleon_theme)
 
-<a href="https://pub.dev/packages/adaptive_chameleon_theme"><img src="https://github.
-com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/adaptive-chameleon-theme.jpg?
-raw=true"/></a>
+<a href="https://pub.dev/packages/adaptive_chameleon_theme">
+<img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/adaptive-chameleon-theme.jpg?raw=true"/>
+</a>
 
 
 TODO: Put a short description of the package here that helps potential users
