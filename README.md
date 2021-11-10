@@ -33,6 +33,16 @@ from and of course, persist this choice in your device.
 * Customize color palettes for different theme modes
 
 
+## Demo
+
+Click below to watch a quick demo.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xCCHCgYo80c" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+
+
 ## Getting started
 
 Add the following dependency to your `pubspec.yaml`
