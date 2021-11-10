@@ -130,7 +130,8 @@ class MyApp extends StatelessWidget {
 
 ## Changing Theme Mode
 
-You can utilise the **changeTheme** function from anywhere in your app. It provides a simple and 
+You can utilise the **changeThemeMode** function from anywhere in your app. It provides a simple 
+and 
 straight forward way of altering the theme modes: **light to dark, dark to light or to system 
 default**.
 
@@ -139,13 +140,13 @@ If the value of *dynamic* is *true*, it takes precedence over *dark*.
 
 ```dart
   // sets theme mode to dark
-  AdaptiveChameleonTheme.of(context).changeTheme(dark: true);
+  AdaptiveChameleonTheme.of(context).changeThemeMode(dark: true);
   
   // sets theme mode to light
-  AdaptiveChameleonTheme.of(context).changeTheme(dark: false);
+  AdaptiveChameleonTheme.of(context).changeThemeMode(dark: false);
   
   // sets theme mode to system default
-  AdaptiveChameleonTheme.of(context).changeTheme(dynamic: true);
+  AdaptiveChameleonTheme.of(context).changeThemeMode(dynamic: true);
 ```
 
 ## Changing Theme Color
