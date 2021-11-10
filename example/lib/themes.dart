@@ -2,7 +2,6 @@ import 'package:adaptive_chameleon_theme/adaptive_chameleon_theme.dart';
 import 'package:flutter/material.dart';
 
 class AppThemes {
-
   // Akainu Theme Data
   static ThemeData akainuTheme() {
     return ThemeData(
@@ -12,10 +11,8 @@ class AppThemes {
 
   static ThemeData akainuDarkTheme() {
     return ThemeData.from(
-      colorScheme: const ColorScheme.dark(
-          primary: Colors.red,
-          secondary: Colors.red
-      ),
+      colorScheme:
+          const ColorScheme.dark(primary: Colors.red, secondary: Colors.red),
     );
   }
 
@@ -28,10 +25,8 @@ class AppThemes {
 
   static ThemeData aokijiDarkTheme() {
     return ThemeData.from(
-      colorScheme: const ColorScheme.dark(
-          primary: Colors.blue,
-          secondary: Colors.blue
-      ),
+      colorScheme:
+          const ColorScheme.dark(primary: Colors.blue, secondary: Colors.blue),
     );
   }
 
@@ -45,9 +40,7 @@ class AppThemes {
   static ThemeData fujitoraDarkTheme() {
     return ThemeData.from(
       colorScheme: const ColorScheme.dark(
-          primary: Colors.purple,
-          secondary: Colors.purple
-      ),
+          primary: Colors.purple, secondary: Colors.purple),
     );
   }
 
@@ -60,10 +53,8 @@ class AppThemes {
 
   static ThemeData kizaruDarkTheme() {
     return ThemeData.from(
-        colorScheme: const ColorScheme.dark(
-            primary: Colors.amber,
-            secondary: Colors.amber
-        ),
+      colorScheme: const ColorScheme.dark(
+          primary: Colors.amber, secondary: Colors.amber),
     );
   }
 
@@ -77,9 +68,7 @@ class AppThemes {
   static ThemeData ryokugyuDarkTheme() {
     return ThemeData.from(
       colorScheme: const ColorScheme.dark(
-          primary: Colors.green,
-          secondary: Colors.green
-      ),
+          primary: Colors.green, secondary: Colors.green),
     );
   }
 
