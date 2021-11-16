@@ -148,12 +148,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: theme.colorScheme.secondary,
                 child: Center(
                     child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                      'Container in accent color and with accent text theme',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).primaryTextTheme.bodyText2),
-                )),
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          'Container in accent color and with accent text theme',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).primaryTextTheme.bodyText2),
+                    )),
               ),
             ]),
             ElevatedButton(
@@ -204,7 +204,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   setState(() {
                     themeModeDropdownValue = themeMode;
                   });
-                }),
+                }
+            ),
+
+            const Divider(),
+
+            ThemeColorSelectorWidget(
+              themeCollection: AppThemes.themeCollection,
+              selectedTheme: AdaptiveChameleonTheme.of(context).themeId,
+              onChanged: (dynamic themeId) async {
+                await AdaptiveChameleonTheme.of(context).setTheme(themeId);
+                setState(() {
+                  dropdownValue = themeId;
+                });
+              },
+            ),
+
+            const Divider(),
+
           ],
         ),
       ),

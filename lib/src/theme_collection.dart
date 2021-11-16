@@ -10,6 +10,9 @@ class ThemeCollection {
   late Map<int, ThemeData> _themes;
   late ThemeData _fallbackTheme;
 
+  /// All specified themes.
+  Map<int, ThemeData> get themes => _themes;
+
   /// The fallback theme.
   ThemeData get fallbackTheme => _fallbackTheme;
 
