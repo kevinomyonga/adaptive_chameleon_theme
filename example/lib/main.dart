@@ -96,74 +96,43 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Select your theme color here:'),
             ),
             DropdownButton(
-                icon: const Icon(Icons.arrow_downward),
-                value: dropdownValue,
-                items: [
-                  DropdownMenuItem(
-                    value: AppThemes.akainu,
-                    child: Text(AppThemes.toStr(AppThemes.akainu)),
-                  ),
-                  DropdownMenuItem(
-                    value: AppThemes.aokiji,
-                    child: Text(AppThemes.toStr(AppThemes.aokiji)),
-                  ),
-                  DropdownMenuItem(
-                    value: AppThemes.kizaru,
-                    child: Text(AppThemes.toStr(AppThemes.kizaru)),
-                  ),
-                  DropdownMenuItem(
-                    value: AppThemes.fujitora,
-                    child: Text(AppThemes.toStr(AppThemes.fujitora)),
-                  ),
-                  DropdownMenuItem(
-                    value: AppThemes.ryokugyu,
-                    child: Text(AppThemes.toStr(AppThemes.ryokugyu)),
-                  ),
-                ],
-                onChanged: (dynamic themeId) async {
-                  await AdaptiveChameleonTheme.of(context).setTheme(themeId);
-                  setState(() {
-                    dropdownValue = themeId;
-                  });
-                }),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              Container(
-                  margin: const EdgeInsets.all(20),
-                  width: 100,
-                  height: 120,
-                  color: theme.primaryColor,
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                          'Container in primary color and primary text theme',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).primaryTextTheme.bodyText2),
-                    ),
-                  )),
-              Container(
-                margin: const EdgeInsets.all(20),
-                width: 100,
-                height: 120,
-                color: theme.colorScheme.secondary,
-                child: Center(
-                    child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                      'Container in accent color and with accent text theme',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).primaryTextTheme.bodyText2),
-                )),
-              ),
-            ]),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                'Elevated Button',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).primaryTextTheme.bodyText2,
-              ),
+              icon: const Icon(Icons.arrow_downward),
+              value: dropdownValue,
+              items: [
+                DropdownMenuItem(
+                  value: AppThemes.akainu,
+                  child: Text(AppThemes.toStr(AppThemes.akainu)),
+                ),
+                DropdownMenuItem(
+                  value: AppThemes.aokiji,
+                  child: Text(AppThemes.toStr(AppThemes.aokiji)),
+                ),
+                DropdownMenuItem(
+                  value: AppThemes.kizaru,
+                  child: Text(AppThemes.toStr(AppThemes.kizaru)),
+                ),
+                DropdownMenuItem(
+                  value: AppThemes.fujitora,
+                  child: Text(AppThemes.toStr(AppThemes.fujitora)),
+                ),
+                DropdownMenuItem(
+                  value: AppThemes.ryokugyu,
+                  child: Text(AppThemes.toStr(AppThemes.ryokugyu)),
+                ),
+              ],
+              onChanged: (dynamic themeId) async {
+                await AdaptiveChameleonTheme.of(context).setTheme(themeId);
+                setState(() {
+                  dropdownValue = themeId;
+                });
+              },
             ),
+            const Divider(),
+            ThemeColorSelectorWidget(
+              themeCollection: AppThemes.themeCollection,
+              selectedTheme: AdaptiveChameleonTheme.of(context).themeId,
+            ),
+            const Divider(),
             const Padding(
               padding: EdgeInsets.only(top: 24, bottom: 12),
               child: Text('Select your theme mode here:'),
@@ -205,6 +174,48 @@ class _MyHomePageState extends State<MyHomePage> {
                     themeModeDropdownValue = themeMode;
                   });
                 }),
+            const Divider(),
+            const ThemeModeSelectorWidget(),
+            const Divider(),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+              Container(
+                  margin: const EdgeInsets.all(20),
+                  width: 100,
+                  height: 120,
+                  color: theme.primaryColor,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          'Container in primary color and primary text theme',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).primaryTextTheme.bodyText2),
+                    ),
+                  )),
+              Container(
+                margin: const EdgeInsets.all(20),
+                width: 100,
+                height: 120,
+                color: theme.colorScheme.secondary,
+                child: Center(
+                    child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                      'Container in accent color and with accent text theme',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).primaryTextTheme.bodyText2),
+                )),
+              ),
+            ]),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                'Elevated Button',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).primaryTextTheme.bodyText2,
+              ),
+            ),
+            const Divider(),
           ],
         ),
       ),
