@@ -202,13 +202,11 @@ This is a toggle buttons widget that allows you to switch theme modes.
 ```
 
 <a href="https://pub.dev/packages/adaptive_chameleon_theme">
-<img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/theme-mode
--selector.jpg?raw=true"/>
+<img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/theme-mode-selector.jpg?raw=true"/>
 </a>
 
 <a href="https://pub.dev/packages/adaptive_chameleon_theme">
-<img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/theme-mode
--selector-dark.jpg?raw=true"/>
+<img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/theme-mode-selector-dark.jpg?raw=true"/>
 </a>
 
 ### ThemeColorSelectorWidget
@@ -223,8 +221,7 @@ This is a toggle buttons widget that allows you to switch theme colors.
 ```
 
 <a href="https://pub.dev/packages/adaptive_chameleon_theme">
-<img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/theme-color
--selector.jpg?raw=true"/>
+<img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/theme-color-selector.jpg?raw=true"/>
 </a>
 
 
