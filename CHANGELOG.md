@@ -1,6 +1,7 @@
 ## 0.0.5
 
 Implemented theme color selector widget.
+Implemented theme mode selector widget.
 
 ## 0.0.4
 

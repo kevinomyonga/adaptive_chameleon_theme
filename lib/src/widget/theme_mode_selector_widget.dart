@@ -1,7 +1,10 @@
-import 'package:adaptive_chameleon_theme/src/services/shared_preferences_service.dart';
-import 'package:flutter/material.dart';
+/*
+ * Copyright © 2021 Kevin Omyonga
+ */
 
+import 'package:adaptive_chameleon_theme/src/services/shared_preferences_service.dart';
 import 'package:adaptive_chameleon_theme/src/widget/adaptive_chameleon_widget.dart';
+import 'package:flutter/material.dart';
 
 class ThemeModeSelectorWidget extends StatefulWidget {
   const ThemeModeSelectorWidget({Key? key}) : super(key: key);
@@ -14,7 +17,6 @@ class ThemeModeSelectorWidget extends StatefulWidget {
 class _ThemeModeSelectorWidgetState extends State<ThemeModeSelectorWidget> {
   ThemeMode? themeMode;
   late SharedPreferencesService _prefs;
-  Future? fInit;
 
   List<bool> selectionList = [false, true, false];
 

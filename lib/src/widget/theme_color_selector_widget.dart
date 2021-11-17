@@ -1,7 +1,10 @@
-import 'package:adaptive_chameleon_theme/src/theme_collection.dart';
-import 'package:flutter/material.dart';
+/*
+ * Copyright © 2021 Kevin Omyonga
+ */
 
+import 'package:adaptive_chameleon_theme/src/theme_collection.dart';
 import 'package:adaptive_chameleon_theme/src/widget/adaptive_chameleon_widget.dart';
+import 'package:flutter/material.dart';
 
 class ThemeColorSelectorWidget extends StatefulWidget {
   const ThemeColorSelectorWidget({
@@ -22,8 +25,6 @@ class ThemeColorSelectorWidget extends StatefulWidget {
 }
 
 class _ThemeColorSelectorWidgetState extends State<ThemeColorSelectorWidget> {
-  //late ValueChanged<int> onChanged;
-
   @override
   Widget build(BuildContext context) {
     return buildSelectorWidgets(widget.themeCollection);

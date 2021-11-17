@@ -189,6 +189,45 @@ app provided with this package, call
 ```
 
 
+## Also Included
+
+The plugin contains some out-of-the-box widgets to make implementation easier.
+
+### ThemeModeSelectorWidget
+
+This is a toggle buttons widget that allows you to switch theme modes.
+
+```dart
+  const ThemeModeSelectorWidget()
+```
+
+<a href="https://pub.dev/packages/adaptive_chameleon_theme">
+<img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/theme-mode
+-selector.jpg?raw=true"/>
+</a>
+
+<a href="https://pub.dev/packages/adaptive_chameleon_theme">
+<img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/theme-mode
+-selector-dark.jpg?raw=true"/>
+</a>
+
+### ThemeColorSelectorWidget
+
+This is a toggle buttons widget that allows you to switch theme colors.
+
+```dart
+  ThemeColorSelectorWidget(
+    themeCollection: AppThemes.themeCollection,
+    selectedTheme: AdaptiveChameleonTheme.of(context).themeId,
+  )
+```
+
+<a href="https://pub.dev/packages/adaptive_chameleon_theme">
+<img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/theme-color
+-selector.jpg?raw=true"/>
+</a>
+
+
 ## Example
 
 The example app can be found in the `example` folder. It implements a dropdown menu to select 
