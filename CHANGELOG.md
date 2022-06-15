@@ -1,3 +1,7 @@
+## 0.0.7
+
+Added Unit Tests.
+
 ## 0.0.6
 
 Updated plugin dependencies.
