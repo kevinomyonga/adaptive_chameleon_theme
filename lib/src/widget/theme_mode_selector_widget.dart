@@ -1,5 +1,5 @@
 /*
- * Copyright © 2021 Kevin Omyonga
+ * Copyright © 2021-2022 Kevin Omyonga
  */
 
 import 'package:adaptive_chameleon_theme/src/services/shared_preferences_service.dart';
@@ -7,14 +7,15 @@ import 'package:adaptive_chameleon_theme/src/widget/adaptive_chameleon_widget.da
 import 'package:flutter/material.dart';
 
 class ThemeModeSelectorWidget extends StatefulWidget {
-  const ThemeModeSelectorWidget({Key? key}) : super(key: key);
+  const ThemeModeSelectorWidget({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  _ThemeModeSelectorWidgetState createState() =>
-      _ThemeModeSelectorWidgetState();
+  ThemeModeSelectorWidgetState createState() => ThemeModeSelectorWidgetState();
 }
 
-class _ThemeModeSelectorWidgetState extends State<ThemeModeSelectorWidget> {
+class ThemeModeSelectorWidgetState extends State<ThemeModeSelectorWidget> {
   ThemeMode? themeMode;
   late SharedPreferencesService _prefs;
 
@@ -65,11 +66,6 @@ class _ThemeModeSelectorWidgetState extends State<ThemeModeSelectorWidget> {
 
   Widget buildSelectorWidgets() {
     return ToggleButtons(
-      children: const <Widget>[
-        Icon(Icons.brightness_high),
-        Icon(Icons.brightness_auto),
-        Icon(Icons.brightness_4),
-      ],
       onPressed: (int index) {
         setState(() {
           for (int i = 0; i < selectionList.length; i++) {
@@ -97,6 +93,11 @@ class _ThemeModeSelectorWidgetState extends State<ThemeModeSelectorWidget> {
       borderRadius: const BorderRadius.all(
         Radius.circular(10),
       ),
+      children: const <Widget>[
+        Icon(Icons.brightness_high),
+        Icon(Icons.brightness_auto),
+        Icon(Icons.brightness_4),
+      ],
     );
   }
 }

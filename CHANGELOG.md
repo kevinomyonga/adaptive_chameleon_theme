@@ -1,3 +1,7 @@
+## 0.0.6
+
+Updated plugin dependencies.
+
 ## 0.0.5
 
 Implemented theme color selector widget.
