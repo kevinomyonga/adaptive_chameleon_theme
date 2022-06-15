@@ -1,12 +1,12 @@
 /*
- * Copyright © 2021 Kevin Omyonga
+ * Copyright © 2021-2022 Kevin Omyonga
  */
 
 import 'package:adaptive_chameleon_theme/src/theme_collection.dart';
 import 'package:adaptive_chameleon_theme/src/widget/adaptive_chameleon_widget.dart';
 import 'package:flutter/material.dart';
 
-class ThemeColorSelectorWidget extends StatefulWidget {
+class ThemeColorSelectorWidget extends StatelessWidget {
   const ThemeColorSelectorWidget({
     Key? key,
     required this.themeCollection,
@@ -20,17 +20,12 @@ class ThemeColorSelectorWidget extends StatefulWidget {
   final double selectorSize;
 
   @override
-  _ThemeColorSelectorWidgetState createState() =>
-      _ThemeColorSelectorWidgetState();
-}
-
-class _ThemeColorSelectorWidgetState extends State<ThemeColorSelectorWidget> {
-  @override
   Widget build(BuildContext context) {
-    return buildSelectorWidgets(widget.themeCollection);
+    return buildSelectorWidgets(context, themeCollection);
   }
 
-  Widget buildSelectorWidgets(ThemeCollection themeCollection) {
+  Widget buildSelectorWidgets(BuildContext context, ThemeCollection
+  themeCollection) {
     final themeInfo = Theme.of(context);
 
     return Row(
@@ -38,16 +33,16 @@ class _ThemeColorSelectorWidgetState extends State<ThemeColorSelectorWidget> {
       children: themeCollection.themes.entries.map<Widget>((theme) {
         return RawMaterialButton(
           onPressed: () {
-            onThemeColorChanged(theme.key);
+            onThemeColorChanged(context, theme.key);
           },
           constraints: BoxConstraints.tightFor(
-            width: widget.selectorSize,
-            height: widget.selectorSize,
+            width: selectorSize,
+            height: selectorSize,
           ),
           fillColor: theme.value.primaryColor,
           shape: CircleBorder(
             side: BorderSide(
-              color: theme.key == widget.selectedTheme
+              color: theme.key == selectedTheme
                   ? (themeInfo.brightness == Brightness.light
                       ? Colors.black
                       : Colors.white)
@@ -56,14 +51,14 @@ class _ThemeColorSelectorWidgetState extends State<ThemeColorSelectorWidget> {
             ),
           ),
           child: Semantics(
-            selected: theme.key == widget.selectedTheme,
+            selected: theme.key == selectedTheme,
           ),
         );
       }).toList(),
     );
   }
 
-  void onThemeColorChanged(int themeId) {
+  void onThemeColorChanged(BuildContext context, int themeId) {
     AdaptiveChameleonTheme.of(context).setTheme(themeId);
   }
 }

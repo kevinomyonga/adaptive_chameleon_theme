@@ -1,5 +1,5 @@
 /*
- * Copyright © 2021 Kevin Omyonga
+ * Copyright © 2021-2022 Kevin Omyonga
  */
 
 import 'package:flutter/material.dart';

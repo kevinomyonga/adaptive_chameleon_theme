@@ -1,5 +1,5 @@
 /*
- * Copyright © 2021 Kevin Omyonga
+ * Copyright © 2021-2022 Kevin Omyonga
  */
 
 import 'package:adaptive_chameleon_theme/src/services'
@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 /// Global InheritedWidget to access the data of the plugin
 /// Current Theme related data or methods
 class AdaptiveChameleonTheme extends InheritedWidget {
-  final _AdaptiveChameleonThemeWidgetState data;
+  final AdaptiveChameleonThemeWidgetState data;
 
   const AdaptiveChameleonTheme({
     Key? key,
@@ -18,7 +18,7 @@ class AdaptiveChameleonTheme extends InheritedWidget {
     required Widget child,
   }) : super(key: key, child: child);
 
-  static _AdaptiveChameleonThemeWidgetState of(BuildContext context) {
+  static AdaptiveChameleonThemeWidgetState of(BuildContext context) {
     return context
         .dependOnInheritedWidgetOfExactType<AdaptiveChameleonTheme>()!
         .data;
@@ -55,11 +55,11 @@ class AdaptiveChameleonThemeWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AdaptiveChameleonThemeWidgetState createState() =>
-      _AdaptiveChameleonThemeWidgetState();
+  AdaptiveChameleonThemeWidgetState createState() =>
+      AdaptiveChameleonThemeWidgetState();
 }
 
-class _AdaptiveChameleonThemeWidgetState
+class AdaptiveChameleonThemeWidgetState
     extends State<AdaptiveChameleonThemeWidget> {
   ThemeMode? themeMode;
   late SharedPreferencesService _prefs;
