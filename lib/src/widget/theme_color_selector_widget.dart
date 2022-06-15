@@ -24,11 +24,12 @@ class ThemeColorSelectorWidget extends StatelessWidget {
     return buildSelectorWidgets(context, themeCollection);
   }
 
-  Widget buildSelectorWidgets(BuildContext context, ThemeCollection
-  themeCollection) {
+  Widget buildSelectorWidgets(
+      BuildContext context, ThemeCollection themeCollection) {
     final themeInfo = Theme.of(context);
 
     return Row(
+      key: const Key('ThemeColorSelectorWidget'),
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: themeCollection.themes.entries.map<Widget>((theme) {
         return RawMaterialButton(
