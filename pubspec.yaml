@@ -1,6 +1,6 @@
 name: adaptive_chameleon_theme
 description: Adds support for managing theme modes (light, dark, system) and switching theme colors.
-version: 0.0.7
+version: 0.0.8
 homepage: "https://github.com/kevinomyonga/adaptive_chameleon_theme"
 
 environment:

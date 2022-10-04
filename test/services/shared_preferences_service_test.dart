@@ -3,36 +3,83 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  group('Check SharedPreferencesService', () {
-    SharedPreferencesService sharedPreferencesService;
+  TestWidgetsFlutterBinding.ensureInitialized();
 
-    testWidgets('Class construction and initialization',
-        (WidgetTester tester) async {
-      SharedPreferences.setMockInitialValues({});
+  late SharedPreferencesService prefs;
+  late bool? isDark;
+  late int? selectedThemeId;
 
-      sharedPreferencesService = SharedPreferencesService();
-      expect(sharedPreferencesService.prefs, null,
-          reason: "Constructor initializes to null");
+  setUp(() async {
+    // Before you use shared preferences add this line. If you even use normal
+    // getString, the internal program uses getAll so it will still crash
+    SharedPreferences.setMockInitialValues({});
+    prefs = SharedPreferencesService();
+    await prefs.loadInstance();
+  });
 
-      sharedPreferencesService.prefs = await SharedPreferences.getInstance();
-      expect(sharedPreferencesService.prefs != null, true,
-          reason: "Constructor without parameters initializes to null");
+  group('SharedPreferenceService', () {
+    test('Returns Null if empty', () {
+      // Dark Mode
+      isDark = prefs.isDark();
+      expect(isDark, null);
+
+      // Theme Color
+      selectedThemeId = prefs.selectedThemeId();
+      expect(selectedThemeId, null);
     });
 
-    testWidgets('should remove "isDark" shared preference value',
-        (WidgetTester tester) async {
-      SharedPreferences.setMockInitialValues(
-          {SharePrefsAttribute.isDark.toShortString(): true});
+    test('Can retrieve preferences', () async {
+      // Dark Mode
+      await prefs.setIsDark(false);
+      isDark = prefs.isDark();
 
-      sharedPreferencesService = SharedPreferencesService();
-      sharedPreferencesService.prefs = await SharedPreferences.getInstance();
+      expect(isDark, false);
 
-      expect(sharedPreferencesService.isDark(), true,
-          reason: "The mock sharedPreference value was defined in 'true'");
+      // Theme Color
+      await prefs.setSelectedThemeId(0);
+      selectedThemeId = prefs.selectedThemeId();
 
-      sharedPreferencesService.clearPref(SharePrefsAttribute.isDark);
-      expect(sharedPreferencesService.isDark(), null,
-          reason: "The mock sharedPreference value was deleted");
+      expect(selectedThemeId, 0);
+    });
+
+    test('Can update preferences', () async {
+      // Dark Mode
+      await prefs.setIsDark(false);
+      isDark = prefs.isDark();
+      expect(isDark, false);
+
+      await prefs.setIsDark(true);
+      isDark = prefs.isDark();
+      expect(isDark, true);
+
+      // Theme Color
+      await prefs.setSelectedThemeId(0);
+      selectedThemeId = prefs.selectedThemeId();
+      expect(selectedThemeId, 0);
+
+      await prefs.setSelectedThemeId(2);
+      selectedThemeId = prefs.selectedThemeId();
+      expect(selectedThemeId, 2);
+    });
+
+    test('Can delete preferences', () async {
+      // Dark Mode
+      await prefs.setIsDark(true);
+      isDark = prefs.isDark();
+      expect(isDark, true);
+
+      await prefs.clearPref(SharePrefsAttribute.isDark);
+      isDark = prefs.isDark();
+      expect(isDark, null);
+
+      // Theme Color
+      await prefs.setSelectedThemeId(1);
+      selectedThemeId = prefs.selectedThemeId();
+      expect(selectedThemeId, 1);
+
+      await prefs.clearPref(SharePrefsAttribute.selectedThemeId);
+      selectedThemeId = prefs.selectedThemeId();
+      expect(selectedThemeId, null);
     });
   });
 }
