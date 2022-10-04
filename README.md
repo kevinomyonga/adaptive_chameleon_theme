@@ -19,6 +19,7 @@ from and of course, persist this choice in your device.
 
 ![Pub Version](https://img.shields.io/pub/v/adaptive_chameleon_theme)
 ![GitHub](https://img.shields.io/github/license/KevinOmyonga/adaptive_chameleon_theme)
+[![codecov](https://codecov.io/gh/kevinomyonga/adaptive_chameleon_theme/branch/main/graph/badge.svg?token=O2H0N3MNTX)](https://codecov.io/gh/kevinomyonga/adaptive_chameleon_theme)
 
 <a href="https://pub.dev/packages/adaptive_chameleon_theme">
 <img src="https://github.com/kevinomyonga/adaptive_chameleon_theme/blob/main/demo/adaptive-chameleon-theme.jpg?raw=true"/>
