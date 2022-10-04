@@ -1,3 +1,7 @@
+## 0.0.8
+
+Increased Unit Test Coverage.
+
 ## 0.0.7
 
 Added Unit Tests.
