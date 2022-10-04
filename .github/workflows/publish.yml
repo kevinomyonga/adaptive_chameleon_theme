@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-name: Publish To Pub.dev
+name: Publish To Pub.Dev
 
 # Controls when the workflow will run
 on:
@@ -9,7 +9,12 @@ on:
     paths-ignore:
       - "**/README.md"
 
-  # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+  push:
+    branches: ["master", "main"]
+    paths-ignore:
+      - '**/README.md'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   publishing:
     name: Publish Plugin
