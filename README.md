@@ -17,7 +17,7 @@ A Flutter package that will automatically retrieve your OS defined Theme (Dynami
 prefered one (Light / Dark), allow you to present the user with a set of color themes to choose 
 from and of course, persist this choice in your device.
 
-![Pub Version](https://img.shields.io/pub/v/adaptive_chameleon_theme)
+[![Pub Version](https://img.shields.io/pub/v/adaptive_chameleon_theme?label=Pub)](https://pub.dev/packages/adaptive_chameleon_theme)
 ![GitHub](https://img.shields.io/github/license/KevinOmyonga/adaptive_chameleon_theme)
 [![codecov](https://codecov.io/gh/kevinomyonga/adaptive_chameleon_theme/branch/main/graph/badge.svg?token=O2H0N3MNTX)](https://codecov.io/gh/kevinomyonga/adaptive_chameleon_theme)
 
