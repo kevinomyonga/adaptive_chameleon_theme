@@ -40,7 +40,7 @@ class ThemeColorSelectorWidget extends StatelessWidget {
             width: selectorSize,
             height: selectorSize,
           ),
-          fillColor: theme.value.primaryColor,
+          fillColor: theme.value.colorScheme.primary,
           shape: CircleBorder(
             side: BorderSide(
               color: theme.key == selectedTheme

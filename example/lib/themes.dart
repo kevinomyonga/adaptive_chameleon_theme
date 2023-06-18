@@ -2,24 +2,66 @@ import 'package:adaptive_chameleon_theme/adaptive_chameleon_theme.dart';
 import 'package:flutter/material.dart';
 
 class AppThemes {
+  // MotyBase Base Theme Data
+  static ThemeData baseTheme(
+      {MaterialColor? primarySwatch, bool isDark = false}) {
+    return ThemeData(
+      brightness: isDark ? Brightness.dark : Brightness.light,
+      primarySwatch: primarySwatch,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      appBarTheme: const AppBarTheme(
+        color: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.black87,
+        ),
+      ),
+      useMaterial3: true,
+    );
+  }
+
+  // MotyBase Base Dark Theme Data
+  static ThemeData baseDarkTheme({MaterialColor? primarySwatch}) {
+    return ThemeData(
+      brightness: Brightness.dark,
+      primarySwatch: primarySwatch,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      scaffoldBackgroundColor: Colors.black,
+      appBarTheme: const AppBarTheme(
+        color: Colors.black,
+      ),
+      useMaterial3: true,
+    );
+  }
+
   // Akainu Theme Data
   static ThemeData akainuTheme() {
-    return ThemeData(
+    final base = baseTheme(
       primarySwatch: Colors.red,
+    );
+    return base.copyWith(
+      colorScheme: ColorScheme.fromSwatch(
+        primarySwatch: Colors.red,
+      ),
     );
   }
 
   static ThemeData akainuDarkTheme() {
-    return ThemeData.from(
-      colorScheme:
-          const ColorScheme.dark(primary: Colors.red, secondary: Colors.red),
+    final base = baseDarkTheme(
+      primarySwatch: Colors.red,
+    );
+    return base.copyWith(
+      colorScheme: const ColorScheme.dark(
+        primary: Colors.red,
+        secondary: Colors.red,
+      ),
     );
   }
 
   // Aokiji Theme Data
   static ThemeData aokijiTheme() {
     return ThemeData(
-      primarySwatch: Colors.blue,
+      colorSchemeSeed: Colors.blue,
+      useMaterial3: true,
     );
   }
 
@@ -27,6 +69,7 @@ class AppThemes {
     return ThemeData.from(
       colorScheme:
           const ColorScheme.dark(primary: Colors.blue, secondary: Colors.blue),
+      useMaterial3: true,
     );
   }
 
