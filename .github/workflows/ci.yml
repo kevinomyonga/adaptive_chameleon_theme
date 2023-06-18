@@ -2,16 +2,11 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on pull request events but only for the main branch
   pull_request:
     branches: ["master", "main"]
     paths-ignore:
-      - '**/README.md'
-
-  push:
-    branches: ["master", "main"]
-    paths-ignore:
-      - '**/README.md'
+      - "**/README.md"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,8 +25,8 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.3.2'
-          channel: 'stable'
+          channel: stable
+          cache: true
 
       - name: Install Dependencies
         run: flutter pub get
