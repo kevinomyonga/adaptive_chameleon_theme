@@ -4,8 +4,8 @@ version: 0.0.9
 homepage: "https://github.com/kevinomyonga/adaptive_chameleon_theme"
 
 environment:
-  sdk: ">=3.0.3 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: '>=3.0.5 <4.0.0'
+  flutter: ">=3.3.0"
 
 dependencies:
   flutter:
