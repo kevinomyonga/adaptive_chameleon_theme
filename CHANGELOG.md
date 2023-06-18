@@ -1,3 +1,8 @@
+## 0.0.9
+
+Updated plugin dependencies.
+Added support for Material3.
+
 ## 0.0.8
 
 Increased Unit Test Coverage.

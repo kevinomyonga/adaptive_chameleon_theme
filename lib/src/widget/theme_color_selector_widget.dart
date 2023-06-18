@@ -1,5 +1,5 @@
 /*
- * Copyright © 2021-2022 Kevin Omyonga
+ * Copyright © 2021-2023 Kevin Omyonga
  */
 
 import 'package:adaptive_chameleon_theme/src/theme_collection.dart';
@@ -40,7 +40,7 @@ class ThemeColorSelectorWidget extends StatelessWidget {
             width: selectorSize,
             height: selectorSize,
           ),
-          fillColor: theme.value.primaryColor,
+          fillColor: theme.value.colorScheme.primary,
           shape: CircleBorder(
             side: BorderSide(
               color: theme.key == selectedTheme

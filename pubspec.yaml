@@ -1,16 +1,16 @@
 name: adaptive_chameleon_theme
 description: Adds support for managing theme modes (light, dark, system) and switching theme colors.
-version: 0.0.8
+version: 0.0.9
 homepage: "https://github.com/kevinomyonga/adaptive_chameleon_theme"
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=3.0.3 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences: ^2.0.15
+  shared_preferences: ^2.1.2
 
 dev_dependencies:
   flutter_test:

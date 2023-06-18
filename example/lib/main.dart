@@ -189,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text(
                           'Container in primary color and primary text theme',
                           textAlign: TextAlign.center,
-                          style: Theme.of(context).primaryTextTheme.bodyText2),
+                          style: Theme.of(context).primaryTextTheme.bodyMedium),
                     ),
                   )),
               Container(
@@ -203,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(
                       'Container in accent color and with accent text theme',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).primaryTextTheme.bodyText2),
+                      style: Theme.of(context).primaryTextTheme.bodyMedium),
                 )),
               ),
             ]),
@@ -212,7 +212,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text(
                 'Elevated Button',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).primaryTextTheme.bodyText2,
+                style: Theme.of(context).primaryTextTheme.bodyMedium,
               ),
             ),
             const Divider(),

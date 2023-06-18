@@ -1,5 +1,5 @@
 /*
- * Copyright © 2021-2022 Kevin Omyonga
+ * Copyright © 2021-2023 Kevin Omyonga
  */
 
 import 'package:adaptive_chameleon_theme/src/services/shared_preferences_service.dart';
