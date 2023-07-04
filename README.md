@@ -232,6 +232,11 @@ The example app can be found in the `example` folder. It implements a dropdown m
 between 5 themes. The app is the source for the video demo above.
 
 
+## Showcase
+
+Using this package in a live app? Let me know and I will add it here.
+
+
 ## Maintainer
 
 * [Kevin Omyonga](https://github.com/KevinOmyonga)
