@@ -1,9 +1,9 @@
 /*
- * Copyright © 2021-2023 Kevin Omyonga
+ * Copyright © 2021-2024 Kevin Omyonga
  */
 
-import 'package:adaptive_chameleon_theme/src/theme_collection.dart';
-import 'package:adaptive_chameleon_theme/src/widget/adaptive_chameleon_widget.dart';
+import 'package:adaptive_chameleon_theme/src/models/models.dart';
+import 'package:adaptive_chameleon_theme/src/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ThemeColorSelectorWidget extends StatelessWidget {

@@ -1,10 +1,9 @@
 /*
- * Copyright © 2021-2023 Kevin Omyonga
+ * Copyright © 2021-2024 Kevin Omyonga
  */
 
-import 'package:adaptive_chameleon_theme/src/services'
-    '/shared_preferences_service.dart';
-import 'package:adaptive_chameleon_theme/src/theme_collection.dart';
+import 'package:adaptive_chameleon_theme/src/services/services.dart';
+import 'package:adaptive_chameleon_theme/src/models/models.dart';
 import 'package:flutter/material.dart';
 
 /// Global InheritedWidget to access the data of the plugin

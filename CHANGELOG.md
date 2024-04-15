@@ -1,3 +1,7 @@
+## 2024.4.0
+
+Updated plugin dependencies.
+
 ## 0.0.9
 
 Updated plugin dependencies.
