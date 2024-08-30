@@ -1,3 +1,17 @@
+## 2024.8.0
+
+- **Enhanced UI Components:**
+  - Updated `ThemeColorSelectorWidget` to utilize Material 3 buttons.
+  - Buttons in `ThemeColorSelectorWidget` now automatically wrap and adjust layout to fit smaller screen sizes, ensuring centering and even spacing.
+- **Customizability:**
+  - Added support for passing custom labels to `ThemeModeSelectorWidget`, with an option to include or exclude labels alongside icons.
+- **Localization Support:**
+  - Enabled localization for `ThemeModeSelectorWidget` by allowing custom text for labels.
+- **Bug Fixes & Improvements:**
+  - Fixed issues with theme configurations where elements from light themes appeared in dark themes.
+  - Refined the theme selection process to ensure that a new random theme ID is selected if the currently active theme ID is chosen.
+
+
 ## 0.0.9
 
 Updated plugin dependencies.

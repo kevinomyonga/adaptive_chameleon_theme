@@ -35,83 +35,91 @@ class AppThemes {
 
   // Akainu Theme Data
   static ThemeData akainuTheme() {
-    final base = baseTheme(
-      primarySwatch: Colors.red,
-    );
-    return base.copyWith(
-      colorScheme: ColorScheme.fromSwatch(
-        primarySwatch: Colors.red,
+    return baseTheme().copyWith(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.red,
       ),
     );
   }
 
   static ThemeData akainuDarkTheme() {
-    final base = baseDarkTheme(
-      primarySwatch: Colors.red,
-    );
-    return base.copyWith(
-      colorScheme: const ColorScheme.dark(
-        primary: Colors.red,
-        secondary: Colors.red,
+    return baseDarkTheme().copyWith(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.red,
+        brightness: Brightness.dark
       ),
     );
   }
 
   // Aokiji Theme Data
   static ThemeData aokijiTheme() {
-    return ThemeData(
-      colorSchemeSeed: Colors.blue,
-      useMaterial3: true,
+    return baseTheme().copyWith(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.blue,
+      ),
     );
   }
 
   static ThemeData aokijiDarkTheme() {
-    return ThemeData.from(
-      colorScheme:
-          const ColorScheme.dark(primary: Colors.blue, secondary: Colors.blue),
-      useMaterial3: true,
+    return baseDarkTheme().copyWith(
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.dark
+      ),
     );
   }
 
   // Fujitora Theme Data (Default)
   static ThemeData fujitoraTheme() {
-    return ThemeData(
-      primarySwatch: Colors.purple,
+    return baseTheme().copyWith(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.purple,
+      ),
     );
   }
 
   static ThemeData fujitoraDarkTheme() {
-    return ThemeData.from(
-      colorScheme: const ColorScheme.dark(
-          primary: Colors.purple, secondary: Colors.purple),
+    return baseDarkTheme().copyWith(
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.purple,
+          brightness: Brightness.dark
+      ),
     );
   }
 
   // Kizaru Theme Data
   static ThemeData kizaruTheme() {
-    return ThemeData(
-      primarySwatch: Colors.amber,
+    return baseTheme().copyWith(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.yellow,
+      ),
     );
   }
 
   static ThemeData kizaruDarkTheme() {
-    return ThemeData.from(
-      colorScheme: const ColorScheme.dark(
-          primary: Colors.amber, secondary: Colors.amber),
+    return baseDarkTheme().copyWith(
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.yellow,
+          brightness: Brightness.dark
+      ),
     );
   }
 
   // Ryokugyu Theme Data
   static ThemeData ryokugyuTheme() {
-    return ThemeData(
-      primarySwatch: Colors.green,
+    return baseTheme().copyWith(
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.green,
+      ),
     );
   }
 
   static ThemeData ryokugyuDarkTheme() {
-    return ThemeData.from(
-      colorScheme: const ColorScheme.dark(
-          primary: Colors.green, secondary: Colors.green),
+    return baseDarkTheme().copyWith(
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.green,
+          brightness: Brightness.dark
+      ),
     );
   }
 

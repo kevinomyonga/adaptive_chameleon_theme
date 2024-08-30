@@ -1,7 +1,6 @@
+import 'package:adaptive_chameleon_theme/adaptive_chameleon_theme.dart';
 import 'package:example/themes.dart';
 import 'package:flutter/material.dart';
-
-import 'package:adaptive_chameleon_theme/adaptive_chameleon_theme.dart';
 
 void main() {
   runApp(
@@ -10,29 +9,30 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return AdaptiveChameleonThemeWidget(
-        themeCollection: AppThemes.themeCollection,
-        darkThemeCollection: AppThemes.darkThemeCollection,
-        defaultThemeId: AppThemes.aokiji,
-        builder: (context, theme, darkTheme, themeMode) {
-          return MaterialApp(
-            title: 'Flutter Demo',
-            theme: theme,
-            darkTheme: darkTheme,
-            themeMode: themeMode,
-            home: const MyHomePage(title: 'Adaptive Chameleon Theme'),
-          );
-        });
+      themeCollection: AppThemes.themeCollection,
+      darkThemeCollection: AppThemes.darkThemeCollection,
+      defaultThemeId: AppThemes.aokiji,
+      builder: (context, theme, darkTheme, themeMode) {
+        return MaterialApp(
+          title: 'Flutter Demo',
+          theme: theme,
+          darkTheme: darkTheme,
+          themeMode: themeMode,
+          home: const MyHomePage(title: 'Adaptive Chameleon Theme'),
+        );
+      },
+    );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({required this.title, super.key});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -120,8 +120,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(AppThemes.toStr(AppThemes.ryokugyu)),
                 ),
               ],
-              onChanged: (dynamic themeId) async {
-                await AdaptiveChameleonTheme.of(context).setTheme(themeId);
+              onChanged: (themeId) async {
+                await AdaptiveChameleonTheme.of(context).setTheme(themeId!);
                 setState(() {
                   dropdownValue = themeId;
                 });
@@ -138,81 +138,87 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Select your theme mode here:'),
             ),
             DropdownButton(
-                icon: const Icon(Icons.arrow_downward),
-                value: themeModeDropdownValue,
-                items: const [
-                  DropdownMenuItem(
-                    value: ThemeMode.light,
-                    child: Text("Light"),
-                  ),
-                  DropdownMenuItem(
-                    value: ThemeMode.dark,
-                    child: Text("Dark"),
-                  ),
-                  DropdownMenuItem(
-                    value: ThemeMode.system,
-                    child: Text("System"),
-                  ),
-                ],
-                onChanged: (dynamic themeMode) async {
-                  switch (themeMode) {
-                    case ThemeMode.light:
-                      AdaptiveChameleonTheme.of(context)
-                          .changeThemeMode(dark: false);
-                      break;
-                    case ThemeMode.dark:
-                      AdaptiveChameleonTheme.of(context)
-                          .changeThemeMode(dark: true);
-                      break;
-                    case ThemeMode.system:
-                      AdaptiveChameleonTheme.of(context)
-                          .changeThemeMode(dynamic: true);
-                      break;
-                  }
+              icon: const Icon(Icons.arrow_downward),
+              value: themeModeDropdownValue,
+              items: const [
+                DropdownMenuItem(
+                  value: ThemeMode.light,
+                  child: Text('Light'),
+                ),
+                DropdownMenuItem(
+                  value: ThemeMode.dark,
+                  child: Text('Dark'),
+                ),
+                DropdownMenuItem(
+                  value: ThemeMode.system,
+                  child: Text('System'),
+                ),
+              ],
+              onChanged: (themeMode) async {
+                switch (themeMode) {
+                  case ThemeMode.light:
+                    AdaptiveChameleonTheme.of(context)
+                        .changeThemeMode(dark: false);
+                  case ThemeMode.dark:
+                    AdaptiveChameleonTheme.of(context)
+                        .changeThemeMode(dark: true);
+                  case ThemeMode.system:
+                    AdaptiveChameleonTheme.of(context)
+                        .changeThemeMode(dynamic: true);
+                  case null:
+                    // TODO: Handle this case.
+                }
 
-                  setState(() {
-                    themeModeDropdownValue = themeMode;
-                  });
-                }),
+                setState(() {
+                  themeModeDropdownValue = themeMode!;
+                });
+              },
+            ),
             const Divider(),
             const ThemeModeSelectorWidget(),
             const Divider(),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              Container(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
                   margin: const EdgeInsets.all(20),
                   width: 100,
                   height: 120,
-                  color: theme.primaryColor,
+                  color: theme.colorScheme.primary,
                   child: Center(
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8),
                       child: Text(
-                          'Container in primary color and primary text theme',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).primaryTextTheme.bodyMedium),
+                        'Container in primary color and primary text theme',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).primaryTextTheme.bodyMedium,
+                      ),
                     ),
-                  )),
-              Container(
-                margin: const EdgeInsets.all(20),
-                width: 100,
-                height: 120,
-                color: theme.colorScheme.secondary,
-                child: Center(
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(20),
+                  width: 100,
+                  height: 120,
+                  color: theme.colorScheme.secondary,
+                  child: Center(
                     child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                      'Container in accent color and with accent text theme',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).primaryTextTheme.bodyMedium),
-                )),
-              ),
-            ]),
+                      padding: const EdgeInsets.all(8),
+                      child: Text(
+                        'Container in accent color and with accent text theme',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).primaryTextTheme.bodyMedium,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             ElevatedButton(
               onPressed: () {},
               child: Text(
                 'Elevated Button',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).primaryTextTheme.bodyMedium,
               ),
             ),
             const Divider(),
