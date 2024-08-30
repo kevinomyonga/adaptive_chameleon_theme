@@ -21,45 +21,39 @@ extension ParseToString on SharePrefsAttribute {
 /// A service class to handle SharedPreferences operations.
 /// This class provides methods to load, save, and clear preferences.
 class SharedPreferencesService {
-  SharedPreferences? _prefs;
-
-  /// Getter for accessing the SharedPreferences instance.
-  SharedPreferences? get prefs => _prefs;
-
-  /// Setter for initializing the SharedPreferences instance.
-  set prefs(SharedPreferences? instance) => _prefs = instance;
+  SharedPreferences? prefs;
 
   /// Asynchronously loads the SharedPreferences instance.
   Future<void> loadInstance() async {
-    _prefs = await SharedPreferences.getInstance();
+    prefs = await SharedPreferences.getInstance();
   }
 
   /// Retrieves the 'isDark' boolean value from SharedPreferences.
   /// Returns null if the value is not set.
   bool? isDark() {
-    return _prefs?.getBool(SharePrefsAttribute.isDark.toShortString());
+    return prefs?.getBool(SharePrefsAttribute.isDark.toShortString());
   }
 
   /// Saves the 'isDark' boolean value to SharedPreferences.
   Future<bool> setIsDark(bool value) async {
-    return await _prefs!
+    return await prefs!
         .setBool(SharePrefsAttribute.isDark.toShortString(), value);
   }
 
   /// Retrieves the 'selectedThemeId' integer value from SharedPreferences.
   /// Returns null if the value is not set.
   int? selectedThemeId() {
-    return _prefs?.getInt(SharePrefsAttribute.selectedThemeId.toShortString());
+    return prefs?.getInt(SharePrefsAttribute.selectedThemeId.toShortString());
   }
 
   /// Saves the 'selectedThemeId' integer value to SharedPreferences.
   Future<bool> setSelectedThemeId(int value) async {
-    return await _prefs!
+    return await prefs!
         .setInt(SharePrefsAttribute.selectedThemeId.toShortString(), value);
   }
 
   /// Removes a specific preference identified by the given attribute.
   Future<bool> clearPref(SharePrefsAttribute attribute) async {
-    return await _prefs!.remove(attribute.toShortString());
+    return await prefs!.remove(attribute.toShortString());
   }
 }

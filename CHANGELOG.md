@@ -1,3 +1,8 @@
+## 2024.8.1
+
+- **Bug Fixes & Improvements:**
+  - Resolved the problem where `AdaptiveChameleonThemeWidget` failed to load the system theme mode.
+
 ## 2024.8.0
 
 - **Enhanced UI Components:**
