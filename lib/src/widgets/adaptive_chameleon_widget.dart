@@ -6,8 +6,7 @@ import 'package:adaptive_chameleon_theme/src/services/services.dart';
 import 'package:adaptive_chameleon_theme/src/models/models.dart';
 import 'package:flutter/material.dart';
 
-/// Global InheritedWidget to access the data of the plugin
-/// Current Theme related data or methods
+/// Global InheritedWidget for accessing theme-related data and methods
 class AdaptiveChameleonTheme extends InheritedWidget {
   final AdaptiveChameleonThemeWidgetState data;
 
@@ -17,6 +16,7 @@ class AdaptiveChameleonTheme extends InheritedWidget {
     required Widget child,
   }) : super(key: key, child: child);
 
+  /// Provides access to theme data and methods from the widget tree
   static AdaptiveChameleonThemeWidgetState of(BuildContext context) {
     return context
         .dependOnInheritedWidgetOfExactType<AdaptiveChameleonTheme>()!
@@ -29,16 +29,13 @@ class AdaptiveChameleonTheme extends InheritedWidget {
   }
 }
 
-/// Signature for the `builder` function which takes the [BuildContext] and
-/// [ThemeData] as arguments and is responsible for returning a [Widget]
-/// in the corresponding theme.
+/// Signature for the `builder` function, which returns a themed [Widget]
 typedef ThemedWidgetBuilder = Widget Function(BuildContext context,
-    ThemeData themeData, ThemeData darkThemeData, ThemeMode initialThemeMode);
+    ThemeData themeData, ThemeData darkThemeData, ThemeMode themeMode);
 
-/// Widget that will contains the whole app
+/// Main widget that encapsulates the entire app
 class AdaptiveChameleonThemeWidget extends StatefulWidget {
   final ThemeMode? initialThemeMode;
-
   final ThemedWidgetBuilder builder;
   final int defaultThemeId;
   final ThemeCollection themeCollection;
@@ -64,132 +61,90 @@ class AdaptiveChameleonThemeWidgetState
   late SharedPreferencesService _prefs;
   Future? fInit;
 
-  late ThemeData _currentTheme = ThemeData.fallback();
-  late ThemeData _currentDarkTheme = ThemeData.fallback();
+  late ThemeData _currentTheme;
+  late ThemeData _currentDarkTheme;
   int _currentThemeId = 0;
 
-  /// Gets the theme currently set.
+  /// Provides access to the currently set theme
   ThemeData get theme => _currentTheme;
   ThemeData get darkTheme => _currentDarkTheme;
 
-  /// Gets the id of the theme currently set.
+  /// Provides access to the currently set theme ID
   int get themeId => _currentThemeId;
 
   @override
-  initState() {
+  void initState() {
     super.initState();
+    _currentTheme = ThemeData.fallback();
+    _currentDarkTheme = ThemeData.fallback();
     fInit = _loadSharedPreferences();
   }
 
-  /// Loads the Shared Preferences data stored on your device to build the UI accordingly
-  Future _loadSharedPreferences() async {
+  /// Loads SharedPreferences data to build the UI accordingly
+  Future<void> _loadSharedPreferences() async {
     _prefs = SharedPreferencesService();
-    if (widget.initialThemeMode != null) {
-      themeMode = widget.initialThemeMode;
+    themeMode = widget.initialThemeMode;
+    await _prefs.loadInstance();
 
-      _prefs.loadInstance();
-      return;
-    }
-
-    _currentThemeId = widget.defaultThemeId;
+    _currentThemeId = _prefs.selectedThemeId() ?? widget.defaultThemeId;
     _currentTheme = widget.themeCollection[_currentThemeId];
     _currentDarkTheme = widget.darkThemeCollection[_currentThemeId];
 
-    await _prefs.loadInstance();
-    bool? isDark = _prefs.isDark();
-    if (isDark != null) {
-      themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
-    }
-
-    int selectedThemeId = (_prefs.selectedThemeId() ?? widget.defaultThemeId);
-    _currentTheme = widget.themeCollection[selectedThemeId];
-    _currentDarkTheme = widget.darkThemeCollection[selectedThemeId];
-    _currentThemeId = selectedThemeId;
-
+    themeMode ??= _prefs.isDark() == true
+        ? ThemeMode.dark
+        : ThemeMode.light;
+    
     if (mounted) {
-      setState(() {}); // Update
+      setState(() {}); // Update the UI
     }
   }
 
-  /// Change your current ThemeMode
-  ///
-  /// If you do not send any parameter it will toggle in the following order:
-  ///
-  /// dynamic -> light -> dark -> dynamic ->
-  ///
-  /// Or you can define boolean values for the parameters "[dynamic]" and/or "[dark]"
-  ///
-  /// If the value of "[dynamic]" is true, it takes precedence over "[dark]"
+  /// Changes the current theme mode with optional parameters
   void changeThemeMode({bool? dynamic, bool? dark}) {
     if (dynamic == null && dark == null) {
       _toggleTheme();
       return;
     }
 
-    ThemeMode? newThemeMode;
     bool forceDark = _prefs.isDark() ?? false;
+    themeMode = (dynamic == true)
+        ? ThemeMode.system
+        : (dark ?? forceDark)
+            ? ThemeMode.dark
+            : ThemeMode.light;
 
-    if (dark != null || dynamic != null) {
-      forceDark = dark ?? forceDark;
-      newThemeMode = (dynamic ?? false)
-          ? ThemeMode.system
-          : forceDark
-              ? ThemeMode.dark
-              : ThemeMode.light;
-    }
+    forceDark ? _prefs.setIsDark(forceDark)
+              : _prefs.clearPref(SharePrefsAttribute.isDark);
 
-    if (newThemeMode == ThemeMode.system) {
-      _prefs.clearPref(SharePrefsAttribute.isDark);
-    } else {
-      _prefs.setIsDark(forceDark);
-    }
-
-    setState(() {
-      themeMode = newThemeMode;
-    });
+    setState(() {});
   }
 
-  /// Toggle from your current ThemeMode in the following order:
-  ///
-  /// dynamic -> light -> dark -> dynamic ->
+  /// Toggles between the theme modes: system -> light -> dark -> system ->
   void _toggleTheme() {
-    ThemeMode? currentThemeMode = themeMode;
-    ThemeMode newThemeMode;
-    bool? isNewThemeDark;
-
-    if (currentThemeMode == ThemeMode.system) {
-      newThemeMode = ThemeMode.light;
-      isNewThemeDark = false;
-    } else if (currentThemeMode == ThemeMode.light) {
-      newThemeMode = ThemeMode.dark;
-      isNewThemeDark = true;
-    } else {
-      newThemeMode = ThemeMode.system;
-      isNewThemeDark = null;
+    switch (themeMode) {
+      case ThemeMode.system:
+        themeMode = ThemeMode.light;
+        _prefs.setIsDark(false);
+        break;
+      case ThemeMode.light:
+        themeMode = ThemeMode.dark;
+        _prefs.setIsDark(true);
+        break;
+      default:
+        themeMode = ThemeMode.system;
+        _prefs.clearPref(SharePrefsAttribute.isDark);
     }
-
-    if (isNewThemeDark == null) {
-      _prefs.clearPref(SharePrefsAttribute.isDark);
-    } else {
-      _prefs.setIsDark(isNewThemeDark);
-    }
-
-    setState(() {
-      themeMode = newThemeMode;
-    });
+    setState(() {});
   }
 
-  /// Sets the theme of the app to the [ThemeData] that corresponds to the [themeId].
-  /// If no [ThemeData] is registered for the given [themeId], the [ThemeCollection]s
-  /// fallback theme is used.
+  /// Sets the theme based on the provided [themeId]
   Future<void> setTheme(int themeId) async {
     setState(() {
       _currentTheme = widget.themeCollection[themeId];
       _currentDarkTheme = widget.darkThemeCollection[themeId];
       _currentThemeId = themeId;
     });
-
-    _prefs.setSelectedThemeId(_currentThemeId);
+    _prefs.setSelectedThemeId(themeId);
   }
 
   @override
@@ -201,20 +156,18 @@ class AdaptiveChameleonThemeWidgetState
 
   @override
   Widget build(BuildContext context) {
-    themeMode = themeMode ?? ThemeMode.system;
     return FutureBuilder(
       future: fInit,
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
+      builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           return AdaptiveChameleonTheme(
             data: this,
             child: widget.builder(
-                context, _currentTheme, _currentDarkTheme, themeMode!),
+              context, _currentTheme, _currentDarkTheme, themeMode ?? ThemeMode.system
+            ),
           );
         }
-        return Container(
-          key: const Key('loading'),
-        );
+        return const SizedBox.shrink(); // Placeholder while loading
       },
     );
   }
