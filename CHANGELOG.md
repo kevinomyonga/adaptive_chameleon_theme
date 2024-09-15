@@ -1,3 +1,8 @@
+## 2024.9.0
+
+- **Code Formatting:**
+  - Fixed formatting issues that impacted static analysis.
+
 ## 2024.8.1
 
 - **Bug Fixes & Improvements:**
@@ -15,7 +20,6 @@
 - **Bug Fixes & Improvements:**
   - Fixed issues with theme configurations where elements from light themes appeared in dark themes.
   - Refined the theme selection process to ensure that a new random theme ID is selected if the currently active theme ID is chosen.
-
 
 ## 0.0.9
 
@@ -41,7 +45,7 @@ Implemented theme mode selector widget.
 
 ## 0.0.4
 
-* Fixed Dart format issues.
+- Fixed Dart format issues.
 
 ## 0.0.3
 
@@ -59,4 +63,4 @@ Updated README
 
 ## 0.0.1
 
-* Initial release.
+- Initial release.

@@ -45,9 +45,7 @@ class AppThemes {
   static ThemeData akainuDarkTheme() {
     return baseDarkTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.red,
-        brightness: Brightness.dark
-      ),
+          seedColor: Colors.red, brightness: Brightness.dark),
     );
   }
 
@@ -63,9 +61,7 @@ class AppThemes {
   static ThemeData aokijiDarkTheme() {
     return baseDarkTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          brightness: Brightness.dark
-      ),
+          seedColor: Colors.blue, brightness: Brightness.dark),
     );
   }
 
@@ -81,9 +77,7 @@ class AppThemes {
   static ThemeData fujitoraDarkTheme() {
     return baseDarkTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple,
-          brightness: Brightness.dark
-      ),
+          seedColor: Colors.purple, brightness: Brightness.dark),
     );
   }
 
@@ -99,9 +93,7 @@ class AppThemes {
   static ThemeData kizaruDarkTheme() {
     return baseDarkTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.yellow,
-          brightness: Brightness.dark
-      ),
+          seedColor: Colors.yellow, brightness: Brightness.dark),
     );
   }
 
@@ -109,7 +101,7 @@ class AppThemes {
   static ThemeData ryokugyuTheme() {
     return baseTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.green,
+        seedColor: Colors.green,
       ),
     );
   }
@@ -117,9 +109,7 @@ class AppThemes {
   static ThemeData ryokugyuDarkTheme() {
     return baseDarkTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.green,
-          brightness: Brightness.dark
-      ),
+          seedColor: Colors.green, brightness: Brightness.dark),
     );
   }
 

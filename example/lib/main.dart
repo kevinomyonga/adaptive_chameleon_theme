@@ -166,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     AdaptiveChameleonTheme.of(context)
                         .changeThemeMode(dynamic: true);
                   case null:
-                    // TODO: Handle this case.
+                  // TODO: Handle this case.
                 }
 
                 setState(() {

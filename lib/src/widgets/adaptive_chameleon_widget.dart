@@ -50,7 +50,8 @@ typedef ThemedWidgetBuilder = Widget Function(BuildContext context,
 /// the necessary theme data to the rest of the app. It allows users to
 /// switch between light and dark themes and maintain their preferences.
 class AdaptiveChameleonThemeWidget extends StatefulWidget {
-  final ThemeMode? initialThemeMode; // Initial theme mode (light, dark, system).
+  final ThemeMode?
+      initialThemeMode; // Initial theme mode (light, dark, system).
   final ThemedWidgetBuilder builder; // Function to build the app's main UI.
   final int defaultThemeId; // Default theme ID if no previous theme is set.
   final ThemeCollection themeCollection; // Collection of light themes.
@@ -77,7 +78,8 @@ class AdaptiveChameleonThemeWidgetState
   Future? fInit; // Future for initializing shared preferences.
 
   late ThemeData _currentTheme = ThemeData.fallback(); // Current light theme.
-  late ThemeData _currentDarkTheme = ThemeData.fallback(); // Current dark theme.
+  late ThemeData _currentDarkTheme =
+      ThemeData.fallback(); // Current dark theme.
   int _currentThemeId = 0; // ID of the currently applied theme.
 
   /// Gets the theme currently set.
@@ -165,7 +167,7 @@ class AdaptiveChameleonThemeWidgetState
     });
   }
 
-  /// Toggles the current theme mode in the order: 
+  /// Toggles the current theme mode in the order:
   /// dynamic -> light -> dark -> dynamic.
   ///
   /// This method cycles through the available theme modes and updates
@@ -197,7 +199,7 @@ class AdaptiveChameleonThemeWidgetState
     });
   }
 
-  /// Sets the theme of the app to the [ThemeData] that corresponds to the 
+  /// Sets the theme of the app to the [ThemeData] that corresponds to the
   /// [themeId].
   ///
   /// If no [ThemeData] is registered for the given [themeId], the fallback

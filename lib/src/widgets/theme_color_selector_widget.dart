@@ -44,7 +44,7 @@ class ThemeColorSelectorWidget extends StatelessWidget {
         runSpacing: 12.0, // Vertical spacing between lines of buttons
         alignment: WrapAlignment.center, // Center the buttons horizontally
         children: themeCollection.themes.entries.map<Widget>((theme) {
-            final themeColor = getShade(theme.value.colorScheme.primary);
+          final themeColor = getShade(theme.value.colorScheme.primary);
 
           return ElevatedButton(
             onPressed: () {
