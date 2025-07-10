@@ -1,5 +1,5 @@
 /*
- * Copyright © 2021-2024 Kevin Omyonga
+ * Copyright © 2021-2025 Kevin Omyonga
  */
 
 import 'package:adaptive_chameleon_theme/src/services/services.dart';
@@ -46,7 +46,7 @@ class ThemeModeSelectorWidget extends StatefulWidget {
 class ThemeModeSelectorWidgetState extends State<ThemeModeSelectorWidget> {
   // Current theme mode. It can be Light, System, or Dark.
   ThemeMode? themeMode;
-  
+
   // Service for accessing shared preferences to store and retrieve the user's theme mode choice.
   late SharedPreferencesService _prefs;
 
@@ -65,10 +65,10 @@ class ThemeModeSelectorWidgetState extends State<ThemeModeSelectorWidget> {
     _prefs = SharedPreferencesService();
 
     await _prefs.loadInstance();
-    
+
     // Retrieve the saved preference for dark mode.
     bool? isDark = _prefs.isDark();
-    
+
     // Set the themeMode based on the saved preference or default to system mode.
     if (isDark != null) {
       themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
@@ -114,7 +114,7 @@ class ThemeModeSelectorWidgetState extends State<ThemeModeSelectorWidget> {
       ],
       // Set the selected segment based on the current theme mode.
       selected: <ThemeMode>{themeMode ?? ThemeMode.system},
-      
+
       // Callback triggered when the user selects a different theme mode.
       onSelectionChanged: (Set<ThemeMode> newSelection) {
         if (newSelection.isNotEmpty) {

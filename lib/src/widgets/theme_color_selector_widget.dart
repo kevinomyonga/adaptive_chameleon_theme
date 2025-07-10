@@ -1,13 +1,13 @@
 /*
- * Copyright © 2021-2024 Kevin Omyonga
+ * Copyright © 2021-2025 Kevin Omyonga
  */
 
 import 'package:adaptive_chameleon_theme/src/models/models.dart';
 import 'package:adaptive_chameleon_theme/src/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-/// A widget that allows users to select a theme color from a collection of themes.
-/// The buttons automatically wrap and adjust their layout to fit the available screen size.
+/// A widget that allows users to select a theme color from a collection of
+/// themes. The buttons automatically wrap and adjust layout based on screen size.
 class ThemeColorSelectorWidget extends StatelessWidget {
   const ThemeColorSelectorWidget({
     Key? key,
@@ -31,25 +31,26 @@ class ThemeColorSelectorWidget extends StatelessWidget {
   }
 
   /// Builds the theme selector buttons as a [Wrap] widget, allowing them
-  /// to wrap to the next line if the screen size is too small. The buttons
-  /// are centered and evenly spaced.
+  /// to wrap to the next line if the screen size is too small.
   Widget buildSelectorWidgets(
-      BuildContext context, ThemeCollection themeCollection) {
+      BuildContext context,
+      ThemeCollection themeCollection,
+      ) {
     final themeInfo = Theme.of(context);
 
     return Center(
       child: Wrap(
         key: const Key('ThemeColorSelectorWidget'),
-        spacing: 16.0, // Horizontal spacing between buttons
-        runSpacing: 12.0, // Vertical spacing between lines of buttons
-        alignment: WrapAlignment.center, // Center the buttons horizontally
+        spacing: 16.0,
+        runSpacing: 12.0,
+        alignment: WrapAlignment.center,
         children: themeCollection.themes.entries.map<Widget>((theme) {
-            final themeColor = getShade(theme.value.colorScheme.primary);
+          final themeColor = getShade(
+            theme.value.colorScheme.onPrimaryContainer,
+          );
 
           return ElevatedButton(
-            onPressed: () {
-              onThemeColorChanged(context, theme.key);
-            },
+            onPressed: () => onThemeColorChanged(context, theme.key),
             style: ElevatedButton.styleFrom(
               backgroundColor: themeColor,
               fixedSize: Size(selectorSize, selectorSize),
@@ -57,8 +58,8 @@ class ThemeColorSelectorWidget extends StatelessWidget {
                 side: BorderSide(
                   color: theme.key == selectedTheme
                       ? (themeInfo.brightness == Brightness.light
-                          ? Colors.black
-                          : Colors.white)
+                      ? Colors.black
+                      : Colors.white)
                       : Colors.grey,
                   width: 3.0,
                 ),
@@ -74,14 +75,12 @@ class ThemeColorSelectorWidget extends StatelessWidget {
   }
 
   /// Handles the theme color change event.
-  /// This method updates the theme by calling [setTheme] on the
-  /// [AdaptiveChameleonTheme] context.
   void onThemeColorChanged(BuildContext context, int themeId) {
     AdaptiveChameleonTheme.of(context).setTheme(themeId);
   }
 
   /// Returns a brighter shade of the given [color].
-  static Color getShade(Color color, {double value = 0.1}) {
+  static Color getShade(Color color, {double value = 0.4}) {
     assert(value >= 0 && value <= 1, 'Value must be between 0 and 1.');
     final hsl = HSLColor.fromColor(color);
     final hslBright = hsl.withLightness(
