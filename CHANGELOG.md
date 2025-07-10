@@ -1,3 +1,13 @@
+## 2025.7.0
+
+- **Improved Theme Color Handling:**
+  - Enhanced color brightness calculation in ThemeColorSelectorWidget to improve visibility on Material 3 surfaces.
+  - Introduced getMaterialColorFromColor to generate full MaterialColor swatches from a single color input.
+  - Added ability to retrieve unmodified theme colors, avoiding altered values from ColorScheme.
+- **UI Enhancements:**
+  - Refactored ThemeColorSelectorWidget to follow line length constraints and improve readability.
+  - Improved contrast and appearance of selection borders in color selector buttons based on theme brightness.
+
 ## 2024.9.0
 
 - **Code Formatting:**
