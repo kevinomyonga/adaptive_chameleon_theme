@@ -1,5 +1,5 @@
 /*
- * Copyright © 2021-2025 Kevin Omyonga
+ * Copyright © 2021-2026 Kevin Omyonga
  */
 
 import 'package:adaptive_chameleon_theme/src/models/models.dart';
@@ -9,12 +9,13 @@ import 'package:flutter/material.dart';
 /// A widget that allows users to select a theme color from a collection of
 /// themes. The buttons automatically wrap and adjust layout based on screen size.
 class ThemeColorSelectorWidget extends StatelessWidget {
+  /// Creates an [ThemeColorSelectorWidget] instance.
   const ThemeColorSelectorWidget({
-    Key? key,
+    super.key,
     required this.themeCollection,
     required this.selectedTheme,
     this.selectorSize = 42.0,
-  }) : super(key: key);
+  });
 
   /// The collection of themes available for selection.
   final ThemeCollection themeCollection;
@@ -45,9 +46,10 @@ class ThemeColorSelectorWidget extends StatelessWidget {
         runSpacing: 12.0,
         alignment: WrapAlignment.center,
         children: themeCollection.themes.entries.map<Widget>((theme) {
-          final themeColor = getShade(
-            theme.value.colorScheme.onPrimaryContainer,
-          );
+          // final themeColor = getShade(
+          //   theme.value.colorScheme.primary,
+          // );
+          final themeColor = theme.value.colorScheme.primary;
 
           return ElevatedButton(
             onPressed: () => onThemeColorChanged(context, theme.key),
@@ -77,15 +79,5 @@ class ThemeColorSelectorWidget extends StatelessWidget {
   /// Handles the theme color change event.
   void onThemeColorChanged(BuildContext context, int themeId) {
     AdaptiveChameleonTheme.of(context).setTheme(themeId);
-  }
-
-  /// Returns a brighter shade of the given [color].
-  static Color getShade(Color color, {double value = 0.4}) {
-    assert(value >= 0 && value <= 1, 'Value must be between 0 and 1.');
-    final hsl = HSLColor.fromColor(color);
-    final hslBright = hsl.withLightness(
-      (hsl.lightness + value).clamp(0.0, 1.0),
-    );
-    return hslBright.toColor();
   }
 }

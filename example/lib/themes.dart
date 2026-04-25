@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 
 class AppThemes {
   // MotyBase Base Theme Data
-  static ThemeData baseTheme(
-      {MaterialColor? primarySwatch, bool isDark = false}) {
+  static ThemeData baseTheme({
+    MaterialColor? primarySwatch,
+    bool isDark = false,
+  }) {
     return ThemeData(
       brightness: isDark ? Brightness.dark : Brightness.light,
       primarySwatch: primarySwatch,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       appBarTheme: const AppBarTheme(
-        color: Colors.white,
-        iconTheme: IconThemeData(
-          color: Colors.black87,
-        ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black87),
       ),
       useMaterial3: true,
     );
@@ -26,9 +26,7 @@ class AppThemes {
       primarySwatch: primarySwatch,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       scaffoldBackgroundColor: Colors.black,
-      appBarTheme: const AppBarTheme(
-        color: Colors.black,
-      ),
+      appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
       useMaterial3: true,
     );
   }
@@ -38,6 +36,7 @@ class AppThemes {
     return baseTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
         seedColor: Colors.red,
+        primary: Colors.red,
       ),
     );
   }
@@ -45,7 +44,10 @@ class AppThemes {
   static ThemeData akainuDarkTheme() {
     return baseDarkTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.red, brightness: Brightness.dark),
+        seedColor: Colors.red,
+        primary: Colors.red,
+        brightness: Brightness.dark,
+      ),
     );
   }
 
@@ -54,6 +56,7 @@ class AppThemes {
     return baseTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
         seedColor: Colors.blue,
+        primary: Colors.blue,
       ),
     );
   }
@@ -61,7 +64,10 @@ class AppThemes {
   static ThemeData aokijiDarkTheme() {
     return baseDarkTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue, brightness: Brightness.dark),
+        seedColor: Colors.blue,
+        primary: Colors.blue,
+        brightness: Brightness.dark,
+      ),
     );
   }
 
@@ -70,6 +76,7 @@ class AppThemes {
     return baseTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
         seedColor: Colors.purple,
+        primary: Colors.purple,
       ),
     );
   }
@@ -77,7 +84,10 @@ class AppThemes {
   static ThemeData fujitoraDarkTheme() {
     return baseDarkTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple, brightness: Brightness.dark),
+        seedColor: Colors.purple,
+        primary: Colors.purple,
+        brightness: Brightness.dark,
+      ),
     );
   }
 
@@ -86,6 +96,7 @@ class AppThemes {
     return baseTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
         seedColor: Colors.yellow,
+        primary: Colors.yellow,
       ),
     );
   }
@@ -93,7 +104,10 @@ class AppThemes {
   static ThemeData kizaruDarkTheme() {
     return baseDarkTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.yellow, brightness: Brightness.dark),
+        seedColor: Colors.yellow,
+        primary: Colors.yellow,
+        brightness: Brightness.dark,
+      ),
     );
   }
 
@@ -102,6 +116,7 @@ class AppThemes {
     return baseTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
         seedColor: Colors.green,
+        primary: Colors.green,
       ),
     );
   }
@@ -109,7 +124,10 @@ class AppThemes {
   static ThemeData ryokugyuDarkTheme() {
     return baseDarkTheme().copyWith(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.green, brightness: Brightness.dark),
+        seedColor: Colors.green,
+        primary: Colors.green,
+        brightness: Brightness.dark,
+      ),
     );
   }
 

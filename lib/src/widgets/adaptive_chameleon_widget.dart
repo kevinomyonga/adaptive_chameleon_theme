@@ -1,5 +1,5 @@
 /*
- * Copyright © 2021-2025 Kevin Omyonga
+ * Copyright © 2021-2026 Kevin Omyonga
  */
 
 import 'package:adaptive_chameleon_theme/src/services/services.dart';
@@ -15,10 +15,10 @@ class AdaptiveChameleonTheme extends InheritedWidget {
   final AdaptiveChameleonThemeWidgetState data;
 
   const AdaptiveChameleonTheme({
-    Key? key,
+    super.key,
     required this.data,
-    required Widget child,
-  }) : super(key: key, child: child);
+    required super.child,
+  });
 
   /// Returns the nearest [AdaptiveChameleonTheme] instance up the widget tree.
   /// Throws an error if no [AdaptiveChameleonTheme] is found.

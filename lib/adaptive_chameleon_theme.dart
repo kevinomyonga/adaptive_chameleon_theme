@@ -1,5 +1,5 @@
 /*
- * Copyright © 2021-2025 Kevin Omyonga
+ * Copyright © 2021-2026 Kevin Omyonga
  */
 
 library adaptive_chameleon_theme;

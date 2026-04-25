@@ -1,3 +1,14 @@
+## 2026.4.0
+
+### Fixed
+
+- **Theme Vibrancy:** Fixed an issue where `ColorScheme.fromSeed` generated "dull" or "washed out" primary colors. Enhanced theme definitions to ensure vibrant and accurate color representation in both Light and Dark modes.
+
+### Changed
+
+- **UI Selector:** Updated `ThemeColorSelectorWidget` to use direct color mapping, preventing the "pale" effect on theme selection buttons.
+- **Material 3 Integration:** Improved `ThemeData` configuration to better balance Material 3 tonal palettes with brand-specific "vibrant" colors (e.g., Akainu Red, Kizaru Yellow).
+
 ## 2025.7.0
 
 - **Improved Theme Color Handling:**
